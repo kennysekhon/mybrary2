@@ -1,0 +1,25 @@
+<!--
+    This time we want to use the method of GET instead of
+    post and that's because in our authors
+    page here you see that this is a GET route 
+    and not a post route
+-->
+
+<h2>Search Authors</h2>
+<form action="/authors" method="GET">
+  <label>Name</label>
+  <input type="text" name="name" value="<%= searchOptions.name %>" />
+  <button type="'submit">Search</button>
+</form>
+
+<!-- we're just going to put a line
+    break here so that we have a little bit
+    of space between our form and our actual
+    author names and then we're going to
+    loop through all the different authors
+    from our page 
+-->
+<br />
+<% authors.forEach(author => { %>
+<div><%= author.name %></div>
+<% }) %> <% console.log(authors) %>

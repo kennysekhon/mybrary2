@@ -1,0 +1,25 @@
+<!--
+
+    Partials: 
+    This is where we'll put all of our template files that aren't actually related
+    to routes. They're just partials that we include in other files.
+
+    W/in partials, we'll include headers.ejs, because it allows you to break our your
+    ejs files into smaller files, which is important, and it allows you to import these files into 
+    other files so you don't have to duplicate your code all over the place.
+
+-->
+
+<!-- w/in <header> we'll include links to our other pages of our application -->
+<header>
+  <!-- We'll do this in <nav> since it's part of our navigation -->
+  <nav>
+    <a href="/">Mybrary</a>
+    <ul>
+      <li><a href="/authors"> Authors </a></li>
+      <li><a href="/authors/new"> Add Author </a></li>
+    </ul>
+  </nav>
+</header>
+
+<!-- Now we need to go into our layout file and include this partial -->

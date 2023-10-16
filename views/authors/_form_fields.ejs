@@ -1,0 +1,41 @@
+<!--
+  
+Now we actually need to create an object inside of this author route and to do that we need to set up our
+different form inputs inside of our <form>
+
+But instead of creating our form input directly in the form here we want to create a new partial file to do that,
+because these form inputs are going to be shared between both our "new file" and our "edit file" for when we actually edit the authors 
+
+So instead of duplicating this in two different sections we'll cut a single file that has those form inputs
+in it
+
+To do this we'll create a new file and set our authors folder and we're going to call it _form_fields.ejs
+
+And the reason I'm using an underscore here is so that we know that this is a partial file and not an actual file
+that's being rendered from the server.  It's just a naming convention.
+ 
+-->
+
+<label>Name</label>
+<!--
+    We want to give this input a name the name is how our server actually gets the data from the
+    object so when this form sends information to our server whatever this name is, in our case it's going to just
+    say "name", this is going to be what the input will be under so when we get it back from our server
+
+    we'll build a call body.name and that'll be the value of this input on our server
+
+
+    <%= author.name %>
+    Inside of here, we're going to actually put the current author's name because if this is coming from the edit page the author is already going to have a name.
+
+    so to use that author variable that we sent down to our server from this page remember we created 
+    this new author and we want to use that inside of here so we use a less than sign a percent and then
+    an equal sign with equal sign essentially tells the server to create whatever text you got from inside of
+    this function right here so in between these two less-than and greater-than signs I'll put that as HTML to the page so we'll say author dot name and this is going to output our author's name right here instead of this text of author name
+
+    Essentially, the<%= author.name %> pre-populated the name field with the author's name
+
+    If we go in here type in a name and hit create that name is going to be sent to our create author route but by default Express has no easy way to access those variables as I've mentioned earlier so we're going to install a library called body parser we just quit out of our server run "npm i body-parser" this is going to install the body parser library which is going to make it incredibly easy to access the different input elements from our actual server 
+
+-->
+<input type="text" name="name" value="<%= author.name %>" />

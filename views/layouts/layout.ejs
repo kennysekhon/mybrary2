@@ -8,6 +8,10 @@
   <body>
     Before
     <br />
+    <!-- this will include the header (nav bar links) we defined in partials/header.ejs -->
+    <%- include("../partials/headers.ejs")%> <%-
+    include("../partials/errorMessage.ejs")%>
+
     <!-- this will include all of the other pages in our body -->
     <%- body %>
     <br />

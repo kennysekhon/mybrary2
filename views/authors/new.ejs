@@ -1,0 +1,26 @@
+<h2>New Author</h2>
+
+<!-- define a form to create an author-->
+
+<!-- 
+method = "POST" because we set up an router.post, so we need to send a post request to the server
+and you can only do that using forms
+
+-->
+<form action="/authors" method="POST">
+  <!-- and inside of our "new.ejs" we want to just import that using that same import syntax-->
+  <%- include('./_form_fields') %>
+  <!--
+        The Cancel button will redirect us back to the /authors endpoint
+        The reason we use an <a> tag here instead of a button is because  <a> tags are used to link things, 
+        and button tags are used to interact with forms and other objects.
+
+        For submitting our form, we'll use a button tag, with type="submit", so that the page knows that this is
+        the button that submits the form that it's inside of.
+    -->
+  <a href="/authors">Cancel</a>
+
+  <!-- The create button sends us to the "router.post" we defined-->
+
+  <button type="submit">Create</button>
+</form>
