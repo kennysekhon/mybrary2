@@ -1,3 +1,8 @@
 <!-- this is getting called by layouts/layout.ejs 
 into the middle of the webpage-->
-Middle
+<h2>Recently Added</h2>
+<div>
+  <% books.forEach(book => { %>
+  <img height="150" width="100" src="<%= book.coverImagePath %>" />
+  <% }) %>
+</div>

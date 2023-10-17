@@ -1,0 +1,24 @@
+<!-- 
+you'll notice that we're not actually putting the cover image name inside of this book object yet and that's because we first need to create the cover image file on our file system get the name from that and then save that into our book object.
+
+The easiest way for us to do that is to use a library called multer. 
+
+So let's install that library we'll just do "npm i multer"
+
+And multer allows us to work with multi-part forms which is what a file
+form is.
+
+Also in order to use files we need to change our form inside of our new page to be of the type of multi-part form.
+
+In order to do that we need to set the enctype type to be equal to multi-part form data:
+enctype="multipart/formdata"
+and this tells our server that our form is sending multi-part data which could include a file.
+
+-->
+
+<h2>New Book</h2>
+<form action="/books" method="POST" enctype="multipart/form-data">
+  <%- include('./_form_fields') %>
+  <a href="/books">Cancel</a>
+  <button type="submit">Create</button>
+</form>

@@ -1,0 +1,53 @@
+<div>
+  <label>Title</label>
+  <input type="text" name="name" value="<%= book.title %>" />
+</div>
+<!-- this is all the code to render "select option box" for author-->
+<div>
+  <label>Author</label>
+  <select name="author">
+    <% authors.forEach(author => { %> <% if (author.id === book.author) { %>
+    <option selected label="<%= author.name %>" value="<%= author.id %>">
+      <%} else { %>
+    </option>
+
+    <option label="<%= author.name %>" value="<%= author.id %>">
+      <%}%> <% }) %>
+    </option>
+  </select>
+</div>
+<!-- Publish Date-->
+
+<!--
+    one thing that we will notice though is that this value here for this
+    publish date inside of our JSON object of book is not in the 
+    correct format to be used inside of this input date object so we 
+    actually need to convert this to the correct notation so in order to do
+    that we're going to do a little bit of tricky JavaScript
+-->
+<div>
+  <label>Publish Date</label>
+  <input
+    type="date"
+    name="publishDate"
+    value="<% book.publishDate == null ? '': book.publishDate.toISOString().split('T')[0] %>"
+  />
+</div>
+
+<!-- Page Count-->
+<div>
+  <label>Page Count</label>
+  <input type="number" name="pageCount" min="1" value="<% book.pageCount%>" />
+</div>
+
+<!-- Cover-->
+<div>
+  <label>Cover</label>
+  <input type="file" name="cover" />
+</div>
+
+<!-- Description-->
+<div>
+  <label>Description</label>
+  <textarea name="description"><%= book.description%></textarea>
+</div>
